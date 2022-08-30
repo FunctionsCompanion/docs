@@ -15,10 +15,6 @@ operational and performance data. Functions Companion also includes an invocatio
 enables rate control for asynchronous functions. Data is forwarded to the (external) Functions Companion log processing
 platform for display in the Functions Companion Lightning Dashboards.
 
-
-[Slide Presentation Overview](https://github.com/FunctionsCompanion/functionscompanion.github.io/blob/docs/slides/OverviewSlides.pdf)
-
-
 ![Image: companion.png](/assets/images/companion.png)
 
 ### Get Functions Companion
