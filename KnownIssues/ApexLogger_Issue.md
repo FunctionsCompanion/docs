@@ -1,11 +1,10 @@
 ---
 layout: default
-title: No Apex Logger Stats in Sync or Async Dashboard
+title: Apex Logger Duration Stats Not Correct
 nav_order: 3
 parent: Known Issues
 ---
 
-# No Apex Logger Stats in Sync or Async Dashboard
+# Apex Logger Duration Stats not correct
 
-The Sync and Async dashboard includes the `apexsyslogjs` function for display and when selected show no data. Data for these functions are availble in the 'Function Companion Details' Dashboard.
-
+The 'Function Companion Details tab shows the invocations of the Apex logger function. The execution times in the dashboard are not correct. The correct values are typically less than 5ms. 
