@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Developers Guide
-nav_order: 5
+nav_order: 6
 ---
 # Functions Companion Developers Guide
 

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: sfdx Commands
+nav_order: 8
 ---
 
 # Helpful sfdx Commands

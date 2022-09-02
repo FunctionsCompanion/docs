@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Installation and Configuration
+title: Sample Project Installation and Configuration
 nav_order: 3
 ---
 
-# Installation and Configuration
+# Sample Project Installation and Configuration
 
 Functions Companion is an observability, performance and cost management solution for Salesfore Functions. It consists of
 a Lightning App that gets installed into your org, along with a logging library that the developer uses to instrument
@@ -15,12 +15,14 @@ operational and performance data. Functions Companion also includes an invocatio
 enables rate control for asynchronous functions. Data is forwarded to the (external) Functions Companion log processing
 platform for display in the Functions Companion Lightning Dashboards.
 
-Installation scripts are included in the [JavaScript_Tests](https://github.com/FunctionsCompanion/JavaScript_Tests)
+Sample Projects with installation scripts are included in the [JavaScript_Tests](https://github.com/FunctionsCompanion/JavaScript_Tests)
 and [Java_Tests](https://github.com/FunctionsCompanion/Java_Tests) repos. Choose whichever language you prefer and
 clone it to your local development envrionment.
 
 * [JavaScript_Test](https://github.com/FunctionsCompanion/JavaScript_Tests)
 * [Java_Test](https://github.com/FunctionsCompanion/Java_Tests)
+
+If you already have an existing Salesforce Project deployed to an org with its own Compute Envrionments, you can still install Functions Companion, but you have to first set a logdrain in the Compute Envrionment. See the instuctions on the [Installation on Existing Projects](InstallOnProject.md) page.
 
 1. Begin by authorizing to a DevHub that is enabled for Functions. From there you will create a scratch org, install
    Functions Companion and deploy your functions.
