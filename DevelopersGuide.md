@@ -26,35 +26,35 @@ You can copy the apexsyslogjs function [source](https://github.com/FunctionsComp
 
 ```
 "dependencies": {
-    "sf-fc-logger": "^1.2.6"
+    "sf-fc-logger": "^1.3.0"
   },
 ```
 
 ## Instrument your functions
 
-Once you have added the Apex logger function, you then must instrument each of your functions to log data.
+Once you have added the Apex logger function, you then must instrument each of your functions to log data. 
 
 ### JavaScript Functions
 
 ```
-import * as fc from 'sf-fc-logger'; # import the lib
+import { fc } from 'sf-fc-logger';
 
-export default async function(event, context, logger) {
-    fc.init(event, context, logger); # init the logger
-    # the function's code
-    
-    fc.fc_log_invocation_data(); # Add this line too.
-    return classNames[pIndex];    
+export default await fc(async (event, context, logger) => {
+
+// Your function Javascript here...
+
+});
 ```
 
-    2. Wrap your invocations
-    3. Function.get and function.invoke combined into one method/call.
-    4a. Sync
+Functions must be invoked via new the method `FCFunction.getAndInvoke()` which combines the `.get()` and `invoke()` methods for functions into one call as shown:
 
-`FCFunction.getAndInvoke('FC_Test_Project1.qna', Jsonpayload);`
+Sync
+ * `FCFunction.getAndInvoke('FC_Test_Project1.qna', Jsonpayload);`
 
-    4b. Async
-
-`FCFunction.getAndInvoke('FC_Test_Project1.irisclassifier', Jsonpayload1, 'FCCallback' );`
+Async
+ * `FCFunction.getAndInvoke('FC_Test_Project1.irisclassifier', Jsonpayload1, 'FCCallback' );`
 
 ## Java Functions
+
+There are examples of how to instrument your Java function in the [Java_Tests](https://github.com/FunctionsCompanion/Java_Tests/blob/main/functions/01_Intro_ProcessLargeData_Java/src/main/java/com/salesforce/functions/recipes/ProcessLargeDataFunction.java#L35) repo.
+
