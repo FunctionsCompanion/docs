@@ -6,7 +6,7 @@ nav_order: 1
 
 # Functions Companion
 
-Functions Companion is an observability, performance and cost management solution for Salesfore Functions. It consists
+Functions Companion is an observability, performance and cost management solution for Salesforce Functions. It consists
 of a Lightning App that gets installed into your org, along with a logging library that the developer uses to instrument
 their functions source code.
 
