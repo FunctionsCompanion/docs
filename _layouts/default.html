@@ -7,6 +7,7 @@ layout: table_wrappers
 <html lang="{{ site.lang | default: 'en-US' }}">
 {% include head.html %}
 <body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="svg-link" viewBox="0 0 24 24">
       <title>Link</title>
@@ -48,7 +49,7 @@ layout: table_wrappers
         <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
       </a>
     </div>
-    <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+    <nav aria-label="Main" id="site-nav" class="site-nav">
       {% assign pages_top_size = site.html_pages
           | where_exp:"item", "item.title != nil"
           | where_exp:"item", "item.parent == nil"
@@ -57,6 +58,18 @@ layout: table_wrappers
       {% if pages_top_size > 0 %}
         {% include nav.html pages=site.html_pages key=nil %}
       {% endif %}
+      {%- if site.nav_external_links -%}
+        <ul class="nav-list">
+          {%- for node in site.nav_external_links -%}
+            <li class="nav-list-item external">
+              <a href="{{ node.url | absolute_url }}" class="nav-list-link external">
+                {{ node.title }}
+                {% unless node.hide_icon %}<svg viewBox="0 0 24 24" aria-labelledby="svg-external-link-title"><use xlink:href="#svg-external-link"></use></svg>{% endunless %}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
       {% if site.just_the_docs.collections %}
         {% assign collections_size = site.just_the_docs.collections | size %}
         {% for collection_entry in site.just_the_docs.collections %}
@@ -111,6 +124,8 @@ layout: table_wrappers
           </div>
           <div id="search-results" class="search-results"></div>
         </div>
+      {% else %}
+        <div></div>
       {% endif %}
       {% include header_custom.html %}
       {% if site.aux_links %}
@@ -156,7 +171,7 @@ layout: table_wrappers
 
         {% if page.has_children == true and page.has_toc != false %}
           <hr>
-          <h2 class="text-delta">Table of contents</h2>
+          {% include toc_heading_custom.html %}
           <ul>
             {% for child in toc_list %}
               <li>
@@ -214,12 +229,13 @@ layout: table_wrappers
       <div class="search-overlay"></div>
     {% endif %}
   </div>
-</body>
-{% if site.mermaid %}
+
+  {% if site.mermaid %}
   <script>
     var config = {% include mermaid_config.js %};
     mermaid.initialize(config);
     window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
   </script>
-{% endif %}
+  {% endif %}
+</body>
 </html>
