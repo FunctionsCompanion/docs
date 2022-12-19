@@ -14,7 +14,7 @@ The Lightning App includes Apex Classes that the developer uses to 'wrap' their 
 1. A Sandbox or Scratch org with Functions Companion installed.
 2. A user account for [Functions Companion](https://app.lastmileops.ai).
 
-If a Sandbox or Scratch org is not yet available, a build script is provide in the repos to build a new one for you.
+If a Sandbox or Scratch org is not yet available, a build script is provided in the repos to build a new one for you.
 ## Connect Functions Companion Logging Platform to Target Org
 
 Be sure you have successfully completed the installation steps and have a running org with Functions Companion installed. If not, review the steps in the [Intallation and Configuration](InstallAndConfig.md) guide.
@@ -60,9 +60,9 @@ When you are done, your setup should look like this:
 
 From the App Page:
 
-    * Click 'Manage Consumer Details'. A verification email will be sent (it might go to Spam folder).
-    * Verify the account.
-    * Get Connected App Client ID and Consumer Secret
+* Click 'Manage Consumer Details'. A verification email will be sent (it might go to Spam folder).
+* Verify the account.
+* Get Connected App Client ID and Consumer Secret
 
 Keep these handy for the next step.
 

@@ -17,8 +17,6 @@ platform for display in the Functions Companion Lightning Dashboards.
 
 If you already have an existing Salesforce Project deployed to an org with its own Compute Envrionments, you can still install Functions Companion.
 
-1. Set Log Drain.
-
 Set a log drain on your Compute Envrionment to point to the Functions Companion syslog endpoint.
 
 `sf env logdrain add -e "${envname}" -l syslog://logger.lastmileops.ai:20514`

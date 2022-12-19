@@ -14,7 +14,7 @@ and [Java_Tests](https://github.com/FunctionsCompanion/Java_Tests) repos include
 
 ## Apex Logger
 
-The Functions Companion Package installs a wrapper class in the target org that logs Apex activity by invoking a JavaScript function called `apexsyslogjs`. This function forwards Apex invocation activitity and status to the Function Companion platform. 
+The Functions Companion Package installs a wrapper class in the target org that logs Apex activity by invoking a JavaScript function called `apexsyslogjs`. This function forwards Apex invocation activitity and org status to the Function Companion platform. 
 
 1. Install `apexsyslogjs` in your Project along with your other functions. There is no Java implemention, but it can still be installed in Projects that have Java functions. 
 
@@ -38,21 +38,20 @@ Once you have added the Apex logger function, you then must instrument each of y
 
 ```
 import { fc } from 'sf-fc-logger';
-
 export default await fc(async (event, context, logger) => {
-
 // Your function Javascript here...
-
 });
 ```
 
-Functions must be invoked via new the method `FCFunction.getAndInvoke()` which combines the `.get()` and `invoke()` methods for functions into one call as shown:
+Functions must be invoked via new the methods `FCFunction.getAndInvoke()` and `FCFunction.getAndQueue()`which combines the `.get()` and `invoke()` methods for functions into one call as shown:
 
 Sync
  * `FCFunction.getAndInvoke('FC_Test_Project1.qna', Jsonpayload);`
 
 Async
- * `FCFunction.getAndInvoke('FC_Test_Project1.irisclassifier', Jsonpayload1, 'FCCallback' );`
+ * `FCFunction.getAndQueue('FC_Test_Project1.irisclassifier', Jsonpayload1, 'FCCallback' );`
+
+Functions Companion puts asynchronus invocations on an internal queue where they are invoked using a rate limimiting throttle to prevent overrunning org API limits. Dashboard stats show how long an asynchronous invocation remains in the queue before the function executes.
 
 ## Java Functions
 

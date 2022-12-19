@@ -22,18 +22,17 @@ clone it to your local development envrionment.
 * [JavaScript_Test](https://github.com/FunctionsCompanion/JavaScript_Tests)
 * [Java_Test](https://github.com/FunctionsCompanion/Java_Tests)
 
-If you already have an existing Salesforce Project deployed to an org with its own Compute Envrionments, you can still install Functions Companion, but you have to first set a logdrain in the Compute Envrionment. See the instuctions on the [Installation on Existing Projects](InstallOnProject.md) page.
+```
+Note: If you already have an existing Salesforce Project deployed to an org with its own Compute Envrionments, you can still install Functions Companion, but you have to first set a logdrain in the Compute Envrionment. See the instuctions on the [Installation on Existing Projects](InstallOnProject.md) page.
+```
 
-1. Begin by authorizing to a DevHub that is enabled for Functions. From there you will create a scratch org, install
-   Functions Companion and deploy your functions.
+To install Functions Companion on a new org, begin by authorizing to a DevHub that is enabled for Functions. From there you can create a new sandbox or scratch org, install Functions Companion and deploy your functions.
 
    `sfdx force:auth:web:login --setdefaultdevhubusername`
 
    When the login page appears, log in to your DevHub.
 
-2. If you do not already have a target org for Functions Companion, you can create one using the included `buildit.sh`
-   script, which creates a scratch org for testing. If you run this script, be sure to note the scratch org username
-   since you will need is for subsequent setup steps.
+If you need a new org to deploy Functions Companion, you can create one using the included `buildit.sh` script, which creates a scratch org for testing. If you run this script, be sure to note the scratch org username since you will need is for subsequent setup steps.
 
 ```
 $ ./buildit.sh
@@ -67,9 +66,7 @@ Scratch Orgs
 | JS_TEST_ORG <your-test-org-username> 00DR0000002JvLvMAK https://speed-computing-6920-dev-ed.my.salesforce.com web   
 ```
 
-3. For Functions Companion to access the target the org, it needs to auth as a Connected App. The current release
-   requires auth via username and password. Scratch orgs do not enable this by defailt so you will need to enable
-   password access and get password via the follwing command:
+For Functions Companion to access the target the org, it needs to auth as a Connected App. The current release requires auth via username and password. Scratch orgs do not enable this by defailt so you will need to enable password access and get password via the follwing command:
 
 `$ sfdx force:user:password:generate --targetusername <your-test-org-username>`
 
@@ -80,13 +77,9 @@ Successfully set the password "rmtw$9Equngkv" for user <your-test-org-username>.
 You can see the password again by running "sfdx force:user:display -u <your-test-org-username>".
 ```
 
-Make a note of the username and password. You will need it in the next step when you configure the Connected App. You
-will also need this username when you run the test scripts.
+Make a note of the username and password. You will need it in the next step when you configure the Connected App. You will also need this username when you run the test scripts.
 
-4. Now that you have a scratch org for testing, you can install Functions Companion.
-   The `install.sh` [script](https://github.com/FunctionsCompanion/JavaScript_Tests/blob/setup/install.sh) will install
-   the latest version of Functions Companion and configure it. From the repo's directory, run `install.sh` and when
-   prompted provide username. 
+Now that you have a scratch org for testing you can install Functions Companion. The `install.sh` [script](https://github.com/FunctionsCompanion/JavaScript_Tests/blob/setup/install.sh) will install the latest version of Functions Companion and configure it. From the repo's directory, run `install.sh` and when prompted provide username. 
 
 ```
 $ ./install.sh                      
@@ -97,9 +90,11 @@ sfdx force:package:install --wait 10 --package 04t8c000001AHeq -u <your-test-org
 Waiting for the package install request to complete. Status = IN_PROGRESS
 Waiting for the package install request to complete. Status = IN_PROGRESS
 Successfully installed package [04t8c000001AHeq]
+```
 
-Configuring the package and installing a dummy API key: XXXXXXX-XXXXXXX-XXXXXXX-XXXXXXX.
-Be sure to update with a valide API key after you create your Connected App.
+Configuring the package and installing a dummy API key: XXXXXXX-XXXXXXX-XXXXXXX-XXXXXXX. Be sure to update with a valide API key after you create your Connected App.
+
+```
 sfdx force:data:tree:import -p ./data/FC_Settings__c-plan.json -u <your-test-org-username>
 === Import Results
 
