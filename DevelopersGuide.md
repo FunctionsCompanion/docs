@@ -51,7 +51,7 @@ Sync
 Async
  * `FCFunction.getAndQueue('FC_Test_Project1.irisclassifier', Jsonpayload1, 'FCCallback' );`
 
-Functions Companion puts asynchronus invocations on an internal queue where they are invoked using a rate limimiting throttle to prevent overrunning org API limits. Dashboard stats show how long an asynchronous invocation remains in the queue before the function executes.
+Functions Companion puts asynchronus invocations on an internal queue where they are invoked using a rate limiting throttle to prevent overrunning org API limits. Dashboard stats show how long an asynchronous invocation remains in the queue before the function executes.
 
 ## Java Functions
 
